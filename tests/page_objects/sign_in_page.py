@@ -1,5 +1,5 @@
 from tests.helpers.support_functions import *
-
+from tests.page_objects.sign_up_page import gen_email
 
 email = 'username'
 password = 'password'
@@ -14,7 +14,7 @@ def sign_in_header_displayed(driver_instance):
 
 def email_input_correct_credentials(driver_instance):
     elem = driver_instance.find_element_by_name(email)
-    elem.send_keys('test1@test.com')
+    elem.send_keys(gen_email)
 
 
 def password_input_correct_credentials(driver_instance):

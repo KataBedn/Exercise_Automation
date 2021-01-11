@@ -8,7 +8,10 @@ class Tests(unittest.TestCase):
 
 
     def setUp(self):
-        self.driver = webdriver.Chrome()
+        if TestSettings.browser == 'chrome':
+            self.driver = webdriver.Chrome()
+        else:
+            self.driver = webdriver.Firefox()
         self.url = TestSettings.page_url
         self.driver.get(self.url)
         self.driver.maximize_window()
@@ -59,3 +62,7 @@ class Tests(unittest.TestCase):
         sign_in_page.password_input_correct_credentials(self.driver)
         sign_in_page.press_login_button(self.driver)
         self.assertTrue(logged_in_page.header_container_displayed(self.driver))
+
+
+if __name__ == '__main__':
+    unittest.main()

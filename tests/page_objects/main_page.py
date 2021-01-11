@@ -8,15 +8,14 @@ sign_in_link = '//a[normalize-space()="Login"]'
 sign_up_link = '//a[normalize-space()="Sign Up"]'
 
 
-
 def search_container_displayed(driver_instance):
     elem = wait_for_visibility_of_element_id(driver_instance, search_container)
     return elem.is_displayed()
 
 
 def show_my_account_options(driver_instance):
-    dropdown_elem = driver_instance.find_element_by_xpath(my_account_dropdown)
-    dropdown_elem.click()
+    elem = wait_for_visibility_of_element_xpath(driver_instance,my_account_dropdown)
+    elem.click()
 
 
 def my_account_options_displayed(driver_instance):

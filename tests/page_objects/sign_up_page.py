@@ -1,4 +1,5 @@
 from tests.helpers.support_functions import *
+import random
 
 first_name_input = 'firstname'
 last_name_input = 'lastname'
@@ -9,6 +10,7 @@ confirm_password_input = 'confirmpassword'
 sign_up_button = 'form[method="POST"] button[type="submit"]'
 sign_up_header = '//h3[normalize-space()="Sign Up"]'
 invalid_email_message = '//p[contains(text(),"The Email field must contain a valid email address")]'
+gen_email = str(random.randint(100, 1000))+'@test.com'
 
 
 def sign_up_header_displayed(driver_instance):
@@ -33,7 +35,7 @@ def mobile_number_input_correct_credentials(driver_instance):
 
 def email_input_correct_credentials(driver_instance):
     elem = driver_instance.find_element_by_name(email_input)
-    elem.send_keys('test1@test.com')
+    elem.send_keys(gen_email)
 
 
 def email_input_incorrect_credentials(driver_instance):

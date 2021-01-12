@@ -1,6 +1,7 @@
 from tests.helpers.support_functions import *
 import random
 
+
 first_name_input = 'firstname'
 last_name_input = 'lastname'
 mobile_number_input = 'phone'
@@ -9,7 +10,6 @@ password_input = 'password'
 confirm_password_input = 'confirmpassword'
 sign_up_button = 'form[method="POST"] button[type="submit"]'
 sign_up_header = '//h3[normalize-space()="Sign Up"]'
-invalid_email_message = '//p[contains(text(),"The Email field must contain a valid email address")]'
 gen_email = str(random.randint(100, 1000))+'@test.com'
 
 
@@ -38,11 +38,6 @@ def email_input_correct_credentials(driver_instance):
     elem.send_keys(gen_email)
 
 
-def email_input_incorrect_credentials(driver_instance):
-    elem = driver_instance.find_element_by_name(email_input)
-    elem.send_keys('test')
-
-
 def password_input_correct_credentials(driver_instance):
     elem = driver_instance.find_element_by_name(password_input)
     elem.send_keys('testtest')
@@ -58,6 +53,3 @@ def press_sign_up(driver_instance):
     elem.click()
 
 
-def invalid_email_message_displayed(driver_instance):
-    elem = wait_for_visibility_of_element_xpath(driver_instance, invalid_email_message)
-    elem.is_displayed()

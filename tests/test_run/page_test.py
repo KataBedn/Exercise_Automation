@@ -37,22 +37,7 @@ class Tests(unittest.TestCase):
         self.assertTrue(logged_in_page.header_container_displayed(self.driver))
 
 
-    def test2_sign_up_with_incorrect_credentials(self):
-        self.assertTrue(main_page.search_container_displayed(self.driver))
-        main_page.show_my_account_options(self.driver)
-        self.assertTrue(main_page.my_account_options_displayed(self.driver))
-        main_page.go_to_sign_up_page(self.driver)
-        self.assertTrue(sign_up_page.sign_up_header_displayed(self.driver))
-        sign_up_page.first_name_input_correct_credentials(self.driver)
-        sign_up_page.last_name_input_correct_credentials(self.driver)
-        sign_up_page.mobile_number_input_correct_credentials(self.driver)
-        sign_up_page.email_input_incorrect_credentials(self.driver)
-        sign_up_page.password_input_correct_credentials(self.driver)
-        sign_up_page.confirm_password_input_correct_credentials(self.driver)
-        sign_up_page.press_sign_up(self.driver)
-        sign_up_page.invalid_email_message_displayed(self.driver)
-
-    def test3_sign_in_with_correct_credentials(self):
+    def test2_sign_in_with_correct_credentials(self):
         self.assertTrue(main_page.search_container_displayed(self.driver))
         main_page.show_my_account_options(self.driver)
         self.assertTrue(main_page.my_account_options_displayed(self.driver))
